@@ -17,14 +17,15 @@ public class MyHeaderInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        if (request.getRequestURI().contains(UrlMapping.REGISTER) ||
-                request.getRequestURI().contains(UrlMapping.LOGIN)) {
-            return true;
-        }
-        String token = request.getHeader("Authorization");
-        System.out.println("TOKEN " + token);
-        if (token == null) throw new UnauthorizedException();
-        String[] bearerToken = token.split(" ");
-        return jwtUtil.validateJwtToken(bearerToken[1]);
+//        if (request.getRequestURI().contains(UrlMapping.REGISTER) ||
+//                request.getRequestURI().contains(UrlMapping.LOGIN)) {
+//            return true;
+//        }
+//        String token = request.getHeader("Authorization");
+//        System.out.println("TOKEN " + token);
+//        if (token == null) throw new UnauthorizedException();
+//        String[] bearerToken = token.split(" ");
+//        return jwtUtil.validateJwtToken(bearerToken[1]);
+        return true;
     }
 }
